@@ -1,0 +1,59 @@
+[gd_scene load_steps=4 format=3 uid="uid://cohlv0rbawlrj"]
+
+[ext_resource type="PackedScene" uid="uid://dbyba6rhtt0or" path="res://ball.tscn" id="1_g0m86"]
+[ext_resource type="PackedScene" uid="uid://cyncj8tjgr8ap" path="res://wall.tscn" id="2_brmv4"]
+[ext_resource type="PackedScene" uid="uid://d14r73ryku8w" path="res://label.tscn" id="3_4ng50"]
+
+[node name="Main" type="Node"]
+
+[node name="Ball" parent="." instance=ExtResource("1_g0m86")]
+position = Vector2(478, 130)
+button_leftRight = NodePath("../Buttons/Button2")
+button_uped = NodePath("../Buttons/Button3")
+
+[node name="Walls" type="Node" parent="."]
+
+[node name="Wall" parent="Walls" instance=ExtResource("2_brmv4")]
+position = Vector2(27, 317)
+rotation = 1.57079
+
+[node name="Wall2" parent="Walls" instance=ExtResource("2_brmv4")]
+position = Vector2(424, 623)
+rotation = 3.14159
+
+[node name="Wall3" parent="Walls" instance=ExtResource("2_brmv4")]
+position = Vector2(144, 528)
+rotation = -2.68845
+
+[node name="Wall4" parent="Walls" instance=ExtResource("2_brmv4")]
+position = Vector2(527, 257)
+rotation = 1.95817
+
+[node name="Label" parent="." instance=ExtResource("3_4ng50")]
+
+[node name="Buttons" type="Node" parent="."]
+
+[node name="Button" type="Button" parent="Buttons"]
+offset_left = 306.0
+offset_top = 233.0
+offset_right = 362.0
+offset_bottom = 264.0
+text = "on/off"
+
+[node name="Button2" type="Button" parent="Buttons"]
+offset_left = 317.0
+offset_top = 303.0
+offset_right = 325.0
+offset_bottom = 311.0
+text = "left_right: off"
+
+[node name="Button3" type="Button" parent="Buttons"]
+offset_left = 331.0
+offset_top = 371.0
+offset_right = 413.0
+offset_bottom = 402.0
+text = "uped: no"
+
+[connection signal="pressed" from="Buttons/Button" to="Ball" method="_on_button_pressed"]
+[connection signal="pressed" from="Buttons/Button2" to="Ball" method="_on_button_leftRight_pressed"]
+[connection signal="pressed" from="Buttons/Button3" to="Ball" method="_on_button_uped_pressed"]
