@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cyncj8tjgr8ap"]
 
-[ext_resource type="Script" path="res://wall.gd" id="1_nts4y"]
-[ext_resource type="Texture2D" uid="uid://b4qoxoea3ddv" path="res://assets/Bouncy Platform Long.png" id="1_wieus"]
+[ext_resource type="Script" path="res://project/1-label/scripts/wall.gd" id="1_nts4y"]
+[ext_resource type="Texture2D" uid="uid://b4qoxoea3ddv" path="res://project/1-label/assets/Bouncy Platform Long.png" id="1_wieus"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oidsu"]
 radius = 28.0
