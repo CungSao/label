@@ -1,8 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://bhmnow3a4b4yr"]
+[gd_scene load_steps=8 format=3 uid="uid://bhmnow3a4b4yr"]
 
 [ext_resource type="Script" path="res://project/2-dodge_creeps/scripts/Main.gd" id="1_f45lt"]
 [ext_resource type="PackedScene" uid="uid://oo0572madcqc" path="res://project/2-dodge_creeps/mob.tscn" id="2_g1rjd"]
 [ext_resource type="PackedScene" uid="uid://dqmv5mcvy3vsr" path="res://project/2-dodge_creeps/player.tscn" id="3_8m6hh"]
+[ext_resource type="PackedScene" uid="uid://bgk8ktk74fb5o" path="res://project/2-dodge_creeps/hud.tscn" id="4_yqj6r"]
+[ext_resource type="AudioStream" uid="uid://df513421wu5g0" path="res://project/2-dodge_creeps/assets/art/House In a Forest Loop.ogg" id="5_rskpa"]
+[ext_resource type="AudioStream" uid="uid://b1vb5yd0wg810" path="res://project/2-dodge_creeps/assets/art/gameover.wav" id="6_htq7w"]
 
 [sub_resource type="Curve2D" id="Curve2D_oiaxd"]
 _data = {
@@ -13,6 +16,14 @@ point_count = 5
 [node name="Main" type="Node"]
 script = ExtResource("1_f45lt")
 mob_scene = ExtResource("2_g1rjd")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.13673, 0.402779, 0.425383, 1)
 
 [node name="Player" parent="." instance=ExtResource("3_8m6hh")]
 
@@ -33,6 +44,16 @@ curve = SubResource("Curve2D_oiaxd")
 
 [node name="ModSpawnLocation" type="PathFollow2D" parent="ModPath"]
 
+[node name="HUD" parent="." instance=ExtResource("4_yqj6r")]
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_rskpa")
+
+[node name="DeathSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_htq7w")
+
+[connection signal="hit" from="Player" to="." method="game_over"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]
 [connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
+[connection signal="start_game" from="HUD" to="." method="new_game"]
