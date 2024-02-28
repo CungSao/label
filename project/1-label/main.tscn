@@ -1,12 +1,20 @@
 [gd_scene load_steps=5 format=3 uid="uid://cohlv0rbawlrj"]
 
-[ext_resource type="Script" path="res://project/1-label/scripts/main.gd" id="1_7mf3j"]
 [ext_resource type="PackedScene" uid="uid://dbyba6rhtt0or" path="res://project/1-label/ball.tscn" id="1_g0m86"]
 [ext_resource type="PackedScene" uid="uid://cyncj8tjgr8ap" path="res://project/1-label/wall.tscn" id="2_brmv4"]
 [ext_resource type="PackedScene" uid="uid://d14r73ryku8w" path="res://project/1-label/label.tscn" id="3_4ng50"]
 
+[sub_resource type="GDScript" id="GDScript_wpv0p"]
+resource_name = "screen_default"
+script/source = "extends Node
+
+func _ready():
+	DisplayServer.window_set_size(Vector2i(1152, 648))
+	get_tree().root.content_scale_mode = Window.CONTENT_SCALE_MODE_CANVAS_ITEMS
+"
+
 [node name="Main" type="Node"]
-script = ExtResource("1_7mf3j")
+script = SubResource("GDScript_wpv0p")
 
 [node name="Ball" parent="." instance=ExtResource("1_g0m86")]
 position = Vector2(478, 130)

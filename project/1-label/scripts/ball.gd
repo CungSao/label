@@ -27,10 +27,7 @@ func _process(delta):
 	else:
 		rotation += angular_speed * delta
 
-	if uped && Input.is_action_pressed("ui_up"):
-		velocity = Vector2.UP.rotated(rotation) * speed
-		position += velocity * delta
-	elif !uped:
+	if uped && Input.is_action_pressed("ui_up") or !uped:
 		velocity = Vector2.UP.rotated(rotation) * speed
 		position += velocity * delta
 

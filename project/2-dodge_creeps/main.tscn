@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://bhmnow3a4b4yr"]
+
+[ext_resource type="Script" path="res://project/2-dodge_creeps/scripts/Main.gd" id="1_f45lt"]
+[ext_resource type="PackedScene" uid="uid://oo0572madcqc" path="res://project/2-dodge_creeps/mob.tscn" id="2_g1rjd"]
+[ext_resource type="PackedScene" uid="uid://dqmv5mcvy3vsr" path="res://project/2-dodge_creeps/player.tscn" id="3_8m6hh"]
+
+[sub_resource type="Curve2D" id="Curve2D_oiaxd"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 480, 0, 0, 0, 0, 0, 480, 720, 0, 0, 0, 0, 0, 720, 0, 0, 0, 0, 0, 0)
+}
+point_count = 5
+
+[node name="Main" type="Node"]
+script = ExtResource("1_f45lt")
+mob_scene = ExtResource("2_g1rjd")
+
+[node name="Player" parent="." instance=ExtResource("3_8m6hh")]
+
+[node name="MobTimer" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="ScoreTimer" type="Timer" parent="."]
+
+[node name="StartTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="StartPos" type="Marker2D" parent="."]
+position = Vector2(240, 450)
+
+[node name="ModPath" type="Path2D" parent="."]
+curve = SubResource("Curve2D_oiaxd")
+
+[node name="ModSpawnLocation" type="PathFollow2D" parent="ModPath"]
+
+[connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
+[connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]
+[connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
