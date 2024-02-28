@@ -7,7 +7,7 @@ var score = 0
 
 func _ready():
 	set_screen()
-	
+
 func set_screen():
 	#window
 	DisplayServer.window_set_size(window_size)
