@@ -1,0 +1,52 @@
+[gd_scene load_steps=4 format=3 uid="uid://c4f8xke2oyici"]
+
+[ext_resource type="FontFile" uid="uid://bh0jefo165e6p" path="res://project/3-3D_creeps/assets/fonts/Montserrat-Medium.ttf" id="1_4nb5u"]
+[ext_resource type="Script" path="res://project/3-3D_creeps/scripts/ScoreLabel.gd" id="2_nqco2"]
+
+[sub_resource type="Theme" id="Theme_oxm2h"]
+default_font = ExtResource("1_4nb5u")
+default_font_size = 22
+
+[node name="UseInterface" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_oxm2h")
+
+[node name="ScoreLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 25.0
+offset_right = 87.0
+offset_bottom = 48.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Score: 0"
+script = ExtResource("2_nqco2")
+
+[node name="Retry" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.376471)
+
+[node name="Label" type="Label" parent="Retry"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -14.0
+offset_right = 20.0
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Press Enter to retry"

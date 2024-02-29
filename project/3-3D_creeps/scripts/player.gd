@@ -24,18 +24,21 @@ func _physics_process(delta):
 	# rotation
 	if direction != Vector3.ZERO:
 		direction = direction.normalized()
-		$Mesh.basis = Basis.looking_at(direction)
-
+		$Pivot.basis = Basis.looking_at(direction)
+		$AnimationPlayer.speed_scale = 4
+	else:
+		$AnimationPlayer.speed_scale = 1
+		
 	# Ground Velocity
 	target_velocity.x = direction.x * speed
 	target_velocity.z = direction.z * speed
-
+	
 	# Gravity
 	if not is_on_floor():
 		target_velocity.y = target_velocity.y - (fall_acceleration * delta)
 
 	# move
-	velocity = target_velocity
+	velocity = target_velocity.rotated(Vector3.UP, rotation.y)
 	move_and_slide()
 
 	# Err: không thể nhảy chéo xuống
@@ -58,7 +61,10 @@ func _physics_process(delta):
 				
 			elif mob:
 				die()
-
+	
+	# nhảy theo hình vòng cung
+	$Pivot.rotation.x = PI / 6 * velocity.y / jump_impulse
+	
 func die():
 	hit.emit()
 	queue_free()
