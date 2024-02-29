@@ -7,15 +7,7 @@ var score = 0
 
 func _ready():
 	$AnimatedSprite2D.hide()
-	set_screen()
-
-func set_screen():
-	#window
-	DisplayServer.window_set_size(window_size)
-	DisplayServer.window_set_position(Vector2i(window_size.x*1.1, window_size.y*0.15))
-	#content
-	get_tree().root.content_scale_size = window_size
-	get_tree().root.content_scale_mode = Window.CONTENT_SCALE_MODE_CANVAS_ITEMS
+	Utils.set_pos_screen(window_size, 1.1, 0.15)
 
 func game_over():
 	$snds/Music.stop()

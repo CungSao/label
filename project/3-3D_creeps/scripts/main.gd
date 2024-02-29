@@ -7,16 +7,8 @@ extends Node
 
 func _ready():
 	$UseInterface/Retry.hide()
-	set_screen(window_size)
+	Utils.set_pos_screen(window_size)
 	
-func set_screen(size, pos_x = 0.6, pos_y = 0.33):
-	#window
-	DisplayServer.window_set_size(size)
-	DisplayServer.window_set_position(Vector2i(size.x*pos_x, size.y*pos_y))
-	#content
-	get_tree().root.content_scale_size = size
-	get_tree().root.content_scale_mode = Window.CONTENT_SCALE_MODE_CANVAS_ITEMS
-
 func _unhandled_input(event):
 	if event.is_action_pressed("ui_accept") and $UseInterface/Retry.is_visible_in_tree():
 		get_tree().reload_current_scene()
