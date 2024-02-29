@@ -18,20 +18,20 @@ func set_screen():
 	get_tree().root.content_scale_mode = Window.CONTENT_SCALE_MODE_CANVAS_ITEMS
 
 func game_over():
-	$Music.stop()
-	$DeathSound.play()
+	$snds/Music.stop()
+	$snds/DeathSound.play()
 
-	$ScoreTimer.stop()
+	$Timers/ScoreTimer.stop()
 	$HUD.show_game_over()
 
 func new_game():
-	$Music.play()
-	get_tree().call_group("mobs", "queue_free")
+	$snds/Music.play()
+	get_tree().call_group("mob", "queue_free")
 	$Player.get_node("AnimatedSprite2D").flip_v = false
 	
 	score = 0
 	$Player.start($StartPos.position)
-	$StartTimer.start()
+	$Timers/StartTimer.start()
 
 	$HUD.update_score(score)
 	$HUD.show_message("Get Ready")
@@ -42,8 +42,8 @@ func _on_score_timer_timeout():
 	$HUD.update_score(score)
 
 func _on_start_timer_timeout():
-	$MobTimer.start()
-	$ScoreTimer.start()
+	$Timers/MobTimer.start()
+	$Timers/ScoreTimer.start()
 
 func _on_mob_timer_timeout():
 	# Choose a random location on Path2D.
@@ -53,13 +53,13 @@ func _on_mob_timer_timeout():
 	# hiện cảnh báo
 	$AnimatedSprite2D.position = mob_spawn_location.position
 	$AnimatedSprite2D.show()
-	$MobTimer.stop()
+	$Timers/MobTimer.stop()
 	await get_tree().create_timer(0.5).timeout
 	$AnimatedSprite2D.hide()
 	
 	# kiểm soát timer
-	if !$ScoreTimer.is_stopped():
-		$MobTimer.start()
+	if !$Timers/ScoreTimer.is_stopped():
+		$Timers/MobTimer.start()
 	
 	var mob = mob_scene.instantiate()
 	mob.position = mob_spawn_location.position

@@ -1,7 +1,7 @@
 extends RigidBody2D
 
 func _ready():
-	add_to_group("mobs")
+	add_to_group("mob")
 	
 	var mob_types = $AnimatedSprite2D.sprite_frames.get_animation_names()
 	$AnimatedSprite2D.play(mob_types[randi() % mob_types.size()])
