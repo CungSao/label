@@ -22,8 +22,6 @@ func game_over():
 	$DeathSound.play()
 
 	$ScoreTimer.stop()
-	$MobTimer.stop()
-	
 	$HUD.show_game_over()
 
 func new_game():
@@ -57,8 +55,11 @@ func _on_mob_timer_timeout():
 	$AnimatedSprite2D.show()
 	$MobTimer.stop()
 	await get_tree().create_timer(0.5).timeout
-	$MobTimer.start()
 	$AnimatedSprite2D.hide()
+	
+	# kiểm soát timer
+	if !$ScoreTimer.is_stopped():
+		$MobTimer.start()
 	
 	var mob = mob_scene.instantiate()
 	mob.position = mob_spawn_location.position
