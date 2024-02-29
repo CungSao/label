@@ -32,7 +32,7 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f4bqg"]
-radius = 25.0
+radius = 24.0
 height = 62.0
 
 [node name="Player" type="Area2D"]

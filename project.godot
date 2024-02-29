@@ -15,6 +15,10 @@ run/main_scene="res://project/3-3D_creeps/main.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+MusicPlayer="*res://project/3-3D_creeps/music_player.tscn"
+
 [display]
 
 window/stretch/mode="canvas_items"
