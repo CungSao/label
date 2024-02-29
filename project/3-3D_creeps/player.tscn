@@ -1,4 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://dt8xlenp3rqwf"]
+[gd_scene load_steps=8 format=3 uid="uid://dt8xlenp3rqwf"]
+
+[ext_resource type="Script" path="res://project/3-3D_creeps/scripts/player.gd" id="1_gthxv"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y2jnf"]
 resource_name = "pupil"
@@ -107,8 +109,9 @@ shadow_mesh = SubResource("ArrayMesh_15xmk")
 radius = 0.8
 
 [node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_gthxv")
 
-[node name="Sphere_001" type="MeshInstance3D" parent="."]
+[node name="Mesh" type="MeshInstance3D" parent="."]
 gi_mode = 0
 mesh = SubResource("ArrayMesh_n5e72")
 skeleton = NodePath("")
