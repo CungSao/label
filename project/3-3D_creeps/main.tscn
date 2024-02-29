@@ -14,7 +14,7 @@ size = Vector3(60, 2, 60)
 
 [sub_resource type="Curve3D" id="Curve3D_70no0"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -9.8725, 0, -9.26855, 0, 0, 0, 0, 0, 0, -1.95148, 0, -9.44457, 0, 0, 0, 0, 0, 0, -1.15938, 0, -1.78759, 0, 0, 0, 0, 0, 0, -8.99239, 0, -0.467414, 0, 0, 0, 0, 0, 0, -9.8725, 0, -9.26855),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -24, 0, -18, 0, 0, 0, 0, 0, 0, 12, 0, -18, 0, 0, 0, 0, 0, 0, 12, 0, 10, 0, 0, 0, 0, 0, 0, -24, 0, 10, 0, 0, 0, 0, 0, 0, -24, 0, -18),
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0)
 }
 point_count = 5
@@ -55,12 +55,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.54251, 0)
 shadow_enabled = true
 
 [node name="SpawnPath3D" type="Path3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 5, 5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 1, 5)
 curve = SubResource("Curve3D_70no0")
+metadata/_edit_group_ = true
 
 [node name="SpawnLocation" type="PathFollow3D" parent="SpawnPath3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
-progress = 127.51
+transform = Transform3D(-4.37113e-08, 0, -0.999999, 0, 1, 0, 0.999999, 0, -4.37113e-08, -24, 0, -18)
 
 [node name="Cylinders" type="Node3D" parent="."]
 

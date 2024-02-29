@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://project/3-3D_creeps/scripts/mob.gd" id="1_3mkti"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yqi77"]
-size = Vector3(1.37134, 0.481445, 2.37207)
+size = Vector3(1.37134, 0.84375, 2.37207)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x7r2b"]
 resource_name = "mob_eye"
@@ -109,13 +109,15 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_3688s")
 
 [node name="Mob" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.288695, 0)
 script = ExtResource("1_3mkti")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.141785, 0)
 shape = SubResource("BoxShape3D_yqi77")
 
 [node name="Sphere" type="MeshInstance3D" parent="."]
-transform = Transform3D(5.6791e-08, 2.98023e-08, -1, 0.952795, 5.96046e-08, 2.98023e-08, 2.83955e-08, -1, 0, 0.0111553, 0.505692, 0.0807191)
+transform = Transform3D(5.6791e-08, 2.98023e-08, -1, 0.952795, 5.96046e-08, 2.98023e-08, 2.83955e-08, -1, 0, 0.0111553, 0.492569, 0.0807191)
 gi_mode = 0
 mesh = SubResource("ArrayMesh_xb3xr")
 skeleton = NodePath("")

@@ -106,9 +106,10 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_15xmk")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_qirq8"]
-radius = 0.8
+radius = 0.671118
 
 [node name="Player" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.454996, 0)
 script = ExtResource("1_gthxv")
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
