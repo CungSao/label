@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://dbe6gyo1e3eet"]
+[gd_scene load_steps=12 format=3 uid="uid://dbe6gyo1e3eet"]
 
 [ext_resource type="Script" path="res://project/3-3D_creeps/scripts/main.gd" id="1_hcunu"]
 [ext_resource type="PackedScene" uid="uid://dt8xlenp3rqwf" path="res://project/3-3D_creeps/player.tscn" id="1_u61sq"]
 [ext_resource type="PackedScene" uid="uid://dw4vte2lsx70b" path="res://project/3-3D_creeps/mob.tscn" id="2_khc7j"]
 [ext_resource type="PackedScene" uid="uid://c4f8xke2oyici" path="res://project/3-3D_creeps/use_interface.tscn" id="4_hvq30"]
+[ext_resource type="AudioStream" uid="uid://70e6yp3m8mvi" path="res://project/3-3D_creeps/assets/art/gameover.wav" id="5_g2171"]
 
 [sub_resource type="Environment" id="Environment_8lqyj"]
 
@@ -87,6 +88,9 @@ wait_time = 0.5
 autostart = true
 
 [node name="UseInterface" parent="." instance=ExtResource("4_hvq30")]
+
+[node name="DeathSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("5_g2171")
 
 [connection signal="hit" from="Player" to="." method="_on_player_hit"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]

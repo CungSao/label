@@ -20,7 +20,8 @@ func set_screen(size, pos_x = 0.6, pos_y = 0.33):
 func _unhandled_input(event):
 	if event.is_action_pressed("ui_accept") and $UseInterface/Retry.is_visible_in_tree():
 		get_tree().reload_current_scene()
-		
+		MusicPlayer.play()
+
 func _on_mob_timer_timeout():
 	var mob = mob_scene.instantiate()
 	var mob_spawn_location = get_node("SpawnPath3D/SpawnLocation")
@@ -34,5 +35,7 @@ func _on_mob_timer_timeout():
 
 func _on_player_hit():
 	$MobTimer.stop()
+	MusicPlayer.stop()
+	$DeathSound.play()
 	
 	$UseInterface/Retry.show()
