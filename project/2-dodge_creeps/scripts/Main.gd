@@ -6,6 +6,7 @@ extends Node
 var score = 0
 
 func _ready():
+	$AnimatedSprite2D.hide()
 	set_screen()
 
 func set_screen():
@@ -47,11 +48,19 @@ func _on_start_timer_timeout():
 	$ScoreTimer.start()
 
 func _on_mob_timer_timeout():
-	var mob = mob_scene.instantiate()
-
 	# Choose a random location on Path2D.
 	var mob_spawn_location = $ModPath/ModSpawnLocation
 	mob_spawn_location.progress_ratio = randf()
+	
+	# hiện cảnh báo
+	$AnimatedSprite2D.position = mob_spawn_location.position
+	$AnimatedSprite2D.show()
+	$MobTimer.stop()
+	await get_tree().create_timer(0.5).timeout
+	$MobTimer.start()
+	$AnimatedSprite2D.hide()
+	
+	var mob = mob_scene.instantiate()
 	mob.position = mob_spawn_location.position
 
 	# Set the mob's direction perpendicular to the path direction.
