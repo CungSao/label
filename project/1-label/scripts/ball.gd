@@ -19,6 +19,8 @@ func _ready():
 	
 func _process(delta):
 	if left_right:
+		if Input.is_action_just_pressed("ui_accept"):
+			angular_speed = -angular_speed
 		if Input.is_action_pressed("ui_left"):
 			direction = -1
 		if Input.is_action_pressed("ui_right"):
