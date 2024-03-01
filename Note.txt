@@ -1,0 +1,15 @@
+Có thể thay đổi Renderer không?
+
+project 1: Coll thì bóng tưng ngược lại
+
+project 2: 1 2 3 nổ theo phạm vi tròn trước
+rồi anim làm sau cũng được mà
+
+project 3: Khói toả ra, quái đụng trúng
+thì label hiện chữ "thăng"
+
+Gom chúng lại, ném lên test mobile
+
+Cánh cục giường ngủ giống littleComputer,
+phòng ăn có cái cửa vòng cung chính giữa,
+phòng khách rồi ra ngoài, một đóng màu xanh đẹp

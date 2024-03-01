@@ -44,12 +44,16 @@ func _physics_process(delta):
 	# Err: không thể nhảy chéo xuống
 	if is_on_floor() and Input.is_action_just_pressed("ui_accept"):
 		target_velocity.y = jump_impulse
-
+	# nhảy theo hình vòng cung
+	$Pivot.rotation.x = PI / 6 * velocity.y / jump_impulse
+	
 	# Iterate through all collisions that occurred this frame
 	for index in range(get_slide_collision_count()):
-		# We get one of the collisions with the player
 		var collision = get_slide_collision(index)
 
+		if collision.get_collider() == null:
+			continue
+			
 		if collision.get_collider().is_in_group("mob"):
 			var mob = collision.get_collider()
 			
@@ -61,9 +65,6 @@ func _physics_process(delta):
 				
 			elif mob:
 				die()
-	
-	# nhảy theo hình vòng cung
-	$Pivot.rotation.x = PI / 6 * velocity.y / jump_impulse
 	
 func die():
 	hit.emit()

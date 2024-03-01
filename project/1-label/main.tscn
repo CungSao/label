@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cohlv0rbawlrj"]
+[gd_scene load_steps=7 format=3 uid="uid://cohlv0rbawlrj"]
 
 [ext_resource type="PackedScene" uid="uid://dbyba6rhtt0or" path="res://project/1-label/ball.tscn" id="1_g0m86"]
 [ext_resource type="PackedScene" uid="uid://cyncj8tjgr8ap" path="res://project/1-label/wall.tscn" id="2_brmv4"]
@@ -14,6 +14,12 @@ func _ready():
 	DisplayServer.window_set_size(window_size)
 	get_tree().root.content_scale_mode = Window.CONTENT_SCALE_MODE_CANVAS_ITEMS
 "
+
+[sub_resource type="InputEventAction" id="InputEventAction_xs0pp"]
+action = &"ui_accept"
+
+[sub_resource type="Shortcut" id="Shortcut_6512e"]
+events = [SubResource("InputEventAction_xs0pp")]
 
 [node name="Main" type="Node"]
 script = SubResource("GDScript_wpv0p")
@@ -57,6 +63,7 @@ offset_left = 317.0
 offset_top = 303.0
 offset_right = 325.0
 offset_bottom = 311.0
+shortcut = SubResource("Shortcut_6512e")
 text = "left_right: off"
 
 [node name="Button3" type="Button" parent="Buttons"]
