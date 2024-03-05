@@ -22,7 +22,7 @@ func _physics_process(delta):
 		direction.z -= 1
 	
 	# rotation
-	if direction != Vector3.ZERO:
+	if direction:
 		direction = direction.normalized()
 		$Pivot.basis = Basis.looking_at(direction)
 		$AnimationPlayer.speed_scale = 4

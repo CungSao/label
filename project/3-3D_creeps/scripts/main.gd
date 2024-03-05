@@ -10,7 +10,7 @@ func _ready():
 	Utils.set_pos_screen(window_size)
 	
 func _unhandled_input(event):
-	if event.is_action_pressed("ui_accept") and $UseInterface/Retry.is_visible_in_tree():
+	if event.is_action_pressed("ui_accept") and $UseInterface/Retry.visible:
 		get_tree().reload_current_scene()
 		MusicPlayer.play()
 
