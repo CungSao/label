@@ -10,6 +10,12 @@ thì label hiện chữ "thăng"
 
 Gom chúng lại, ném lên test mobile
 
-Cánh cục giường ngủ giống littleComputer,
+Pengu: ngăn cá ra khỏi nước,
+di chuyển random, chạy khi gần kẻ thù
+
+Click-anim: thêm anim cho 3 trạng thái,
+đứng, ngồi, nằm random khi được click
+
+Cánh cụt giường ngủ giống littleComputer,
 phòng ăn có cái cửa vòng cung chính giữa,
 phòng khách rồi ra ngoài, một đóng màu xanh đẹp

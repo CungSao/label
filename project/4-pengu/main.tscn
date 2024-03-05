@@ -1,0 +1,201 @@
+[gd_scene load_steps=14 format=3 uid="uid://bd87lxokwee5s"]
+
+[ext_resource type="Texture2D" uid="uid://cu8wwoviydpew" path="res://project/4-pengu/assets/giuong.png" id="2_84uur"]
+[ext_resource type="Texture2D" uid="uid://bvkh6cueu8yvq" path="res://project/4-pengu/assets/goi.png" id="3_a2lfa"]
+[ext_resource type="Texture2D" uid="uid://bne4tx8mqgqb8" path="res://project/4-pengu/assets/goi_bo.png" id="4_o4o77"]
+[ext_resource type="Texture2D" uid="uid://doqcdd74vmqe8" path="res://project/4-pengu/assets/bg2x.png" id="6_6smrh"]
+[ext_resource type="Texture2D" uid="uid://cemecgm07f0vf" path="res://project/4-pengu/assets/mem.png" id="7_4hgmh"]
+[ext_resource type="PackedScene" uid="uid://xow35r6s8qav" path="res://project/4-pengu/player.tscn" id="8_prwkn"]
+[ext_resource type="Texture2D" uid="uid://cuj88dhgihva0" path="res://project/4-pengu/assets/tranh.png" id="8_pue8f"]
+[ext_resource type="Texture2D" uid="uid://bg6a0cxrdlm6i" path="res://project/4-pengu/assets/bg.png" id="8_ryyv2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gclu1"]
+size = Vector2(1521, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t50wx"]
+size = Vector2(662, 20)
+
+[sub_resource type="GDScript" id="GDScript_v7114"]
+script/source = "extends Area2D
+	
+func _on_body_entered(_body):
+	get_parent().get_node(\"Player\").jump()
+
+func _on_body_exited(_body):
+	$Label.hide()
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bcjt4"]
+size = Vector2(24, 104)
+
+[sub_resource type="Curve2D" id="Curve2D_dsuhb"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 4925, 1944, 0, 0, 0, 0, 1395, 1944, 0, 0, 0, 0, 1400, 716)
+}
+point_count = 3
+
+[node name="Main" type="Node"]
+
+[node name="Node" type="Node" parent="."]
+
+[node name="FishTimer" type="Timer" parent="."]
+wait_time = 0.2
+autostart = true
+
+[node name="art" type="Node" parent="."]
+
+[node name="Bg" type="Sprite2D" parent="art"]
+scale = Vector2(0.995, 1.1)
+texture = ExtResource("8_ryyv2")
+centered = false
+
+[node name="Bg2" type="Sprite2D" parent="art"]
+position = Vector2(508, 0)
+scale = Vector2(1, 1.1)
+texture = ExtResource("8_ryyv2")
+centered = false
+
+[node name="Bg3" type="Sprite2D" parent="art"]
+position = Vector2(1020, 0)
+scale = Vector2(1, 1.1)
+texture = ExtResource("8_ryyv2")
+centered = false
+
+[node name="Bg4" type="Sprite2D" parent="art"]
+modulate = Color(0.643137, 0.85098, 1, 1)
+position = Vector2(1487, 546)
+scale = Vector2(2.53061, 0.204096)
+texture = ExtResource("8_ryyv2")
+centered = false
+
+[node name="Giuong" type="Sprite2D" parent="art"]
+position = Vector2(239, 374)
+texture = ExtResource("2_84uur")
+
+[node name="Goi" type="Sprite2D" parent="art"]
+position = Vector2(239, 313)
+texture = ExtResource("3_a2lfa")
+
+[node name="GoiBo" type="Sprite2D" parent="art"]
+position = Vector2(186, 254)
+texture = ExtResource("4_o4o77")
+
+[node name="Bg2x" type="Sprite2D" parent="art"]
+visible = false
+modulate = Color(1, 1, 1, 0.196078)
+texture = ExtResource("6_6smrh")
+centered = false
+
+[node name="Mem" type="Sprite2D" parent="art"]
+position = Vector2(261, 404)
+texture = ExtResource("7_4hgmh")
+
+[node name="Tranh" type="Sprite2D" parent="art"]
+position = Vector2(143, 87)
+texture = ExtResource("8_pue8f")
+
+[node name="coll" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="coll"]
+position = Vector2(760.5, 0)
+shape = SubResource("RectangleShape2D_gclu1")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="coll"]
+position = Vector2(758.5, 652)
+shape = SubResource("RectangleShape2D_gclu1")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="coll"]
+position = Vector2(-12, 326)
+rotation = 1.57079
+shape = SubResource("RectangleShape2D_t50wx")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="ColorRect3" type="ColorRect" parent="Node2D"]
+offset_left = 2758.0
+offset_top = 368.0
+offset_right = 3778.0
+offset_bottom = 670.0
+color = Color(0.197725, 0.377218, 0.99998, 1)
+
+[node name="Line2D" type="Line2D" parent="Node2D/ColorRect3"]
+points = PackedVector2Array(94, 134, 281, 128)
+
+[node name="Line2D2" type="Line2D" parent="Node2D/ColorRect3"]
+position = Vector2(280, -53)
+points = PackedVector2Array(94, 134, 281, 128)
+
+[node name="Line2D3" type="Line2D" parent="Node2D/ColorRect3"]
+position = Vector2(149, 115)
+points = PackedVector2Array(94, 134, 281, 128)
+
+[node name="Line2D4" type="Line2D" parent="Node2D/ColorRect3"]
+position = Vector2(603, -24)
+points = PackedVector2Array(94, 134, 281, 128)
+
+[node name="Line2D5" type="Line2D" parent="Node2D/ColorRect3"]
+position = Vector2(472, 91)
+points = PackedVector2Array(94, 134, 281, 128)
+
+[node name="ColorRect4" type="ColorRect" parent="Node2D"]
+offset_left = 3778.0
+offset_top = 368.0
+offset_right = 4798.0
+offset_bottom = 670.0
+color = Color(0.197725, 0.377218, 0.99998, 1)
+
+[node name="Line2D" type="Line2D" parent="Node2D/ColorRect4"]
+points = PackedVector2Array(94, 134, 281, 128)
+
+[node name="Line2D2" type="Line2D" parent="Node2D/ColorRect4"]
+position = Vector2(280, -53)
+points = PackedVector2Array(94, 134, 281, 128)
+
+[node name="Line2D3" type="Line2D" parent="Node2D/ColorRect4"]
+position = Vector2(149, 115)
+points = PackedVector2Array(94, 134, 281, 128)
+
+[node name="Line2D4" type="Line2D" parent="Node2D/ColorRect4"]
+position = Vector2(603, -24)
+points = PackedVector2Array(94, 134, 281, 128)
+
+[node name="Line2D5" type="Line2D" parent="Node2D/ColorRect4"]
+position = Vector2(472, 91)
+points = PackedVector2Array(94, 134, 281, 128)
+
+[node name="ColorRect2" type="ColorRect" parent="Node2D"]
+offset_left = 1249.0
+offset_top = 668.0
+offset_right = 4802.0
+offset_bottom = 1808.0
+color = Color(0.338478, 0.516322, 1, 1)
+
+[node name="Player" parent="." instance=ExtResource("8_prwkn")]
+position = Vector2(2469, 476)
+
+[node name="jump" type="Area2D" parent="."]
+position = Vector2(2664, 605)
+script = SubResource("GDScript_v7114")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="jump"]
+position = Vector2(75, 2)
+shape = SubResource("RectangleShape2D_bcjt4")
+
+[node name="Label" type="Label" parent="jump"]
+offset_left = -24.0
+offset_top = -312.0
+offset_right = 141.0
+offset_bottom = -224.0
+theme_override_font_sizes/font_size = 64
+text = "JUMP"
+
+[node name="fishPath" type="Path2D" parent="."]
+curve = SubResource("Curve2D_dsuhb")
+
+[node name="fishSpawnLocation" type="PathFollow2D" parent="fishPath"]
+position = Vector2(4925, 1944)
+rotation = 3.14159
+
+[connection signal="timeout" from="FishTimer" to="." method="_on_fish_timer_timeout"]
+[connection signal="body_entered" from="jump" to="jump" method="_on_body_entered"]
+[connection signal="body_exited" from="jump" to="jump" method="_on_body_exited"]
